@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Install libusb
+    - name: Install dependencies
       run: sudo apt install libusb-1.0-0-dev
     - name: Build
       run: make
@@ -21,8 +21,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Install libusb
-      run: brew install libusb
+    - name: Install dependencies
+      run: brew install pkg-config libusb
     - name: Build
       run: make
 
