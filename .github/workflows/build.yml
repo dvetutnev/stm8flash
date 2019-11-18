@@ -1,0 +1,17 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+
+  linux:
+    timeout-minutes: 1
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install libusb
+      run: sudo apt install libusb-1.0-0 libusb-1.0-0-dev
+    - name: Build
+      run: make
+
