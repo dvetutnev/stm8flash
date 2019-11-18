@@ -8,6 +8,10 @@ jobs:
     timeout-minutes: 1
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        compiler: [gcc, clang]
+
     steps:
     - uses: actions/checkout@v1
     - name: Install dependencies
