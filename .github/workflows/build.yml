@@ -11,7 +11,18 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install libusb
-      run: sudo apt install libusb-1.0-0 libusb-1.0-0-dev
+      run: sudo apt install libusb-1.0-0-dev
+    - name: Build
+      run: make
+
+  macos:
+    timeout-minutes: 1
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install libusb
+      run: brew install libusb
     - name: Build
       run: make
 
