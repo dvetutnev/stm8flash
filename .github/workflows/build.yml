@@ -12,12 +12,15 @@ jobs:
       matrix:
         compiler: [gcc, clang]
 
+    env:
+      CC: ${{ matrix.compiler }}
+
     steps:
     - uses: actions/checkout@v1
     - name: Install dependencies
       run: sudo apt install libusb-1.0-0-dev
     - name: Compiler version
-      run: cc --version
+      run: $CC --version
     - name: Build
       run: make
 
